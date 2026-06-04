@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a2e42;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  background: #0d3b52;
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 28px 32px;
+  overflow: hidden;
+}
+
+/* Decorative diagonal lines */
+.deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Screens */
+.screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ── Screen 1: Name Entry ── */
+.name-card {
+  background: #1a5470;
+  border-radius: 20px;
+  padding: 28px 24px;
+  width: 100%;
+  z-index: 1;
+}
+
+.name-label {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.name-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.name-input {
+  flex: 1;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 16px;
+  color: #0d3b52;
+  outline: none;
+  font-family: inherit;
+}
+
+.name-input::placeholder {
+  color: #aaa;
+}
+
+.go-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2.5px solid #fff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.go-btn:hover {
+  background: #c8860e;
+  border-color: #c8860e;
+}
+
+/* ── Screen 2: Results ── */
+.good-luck {
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  z-index: 1;
+  margin-bottom: 4px;
+}
+
+.good-luck span {
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  font-size: 26px;
+}
+
+.numbers-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 20px 0 12px;
+  z-index: 1;
+}
+
+.numbers-card {
+  background: #1a5470;
+  border-radius: 20px;
+  padding: 24px 20px;
+  width: 100%;
+  z-index: 1;
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.num-ball {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.num-val {
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+/* Action buttons */
+.action-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  width: 100%;
+  z-index: 1;
+}
+
+.btn-dark {
+  flex: 1;
+  background: #122b38;
+  color: #d0e8f0;
+  border: none;
+  border-radius: 50px;
+  padding: 17px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.btn-dark:hover {
+  background: #0a1f28;
+}
+
+.btn-light {
+  flex: 1;
+  background: #d8e8ee;
+  color: #0d3b52;
+  border: none;
+  border-radius: 50px;
+  padding: 17px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.btn-light:hover {
+  background: #c0d8e2;
+}
+
+/* Footer */
+.pet {
+  z-index: 1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mega-Sena Gerador</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div class="app">
+  <svg class="deco" viewBox="0 0 420 750" xmlns="http://www.w3.org/2000/svg">
+    <line x1="320" y1="-10" x2="440" y2="110" stroke="#c8860e" stroke-width="7" />
+    <line x1="360" y1="-10" x2="460" y2="90" stroke="#c8860e" stroke-width="4" />
+    <line x1="-20" y1="580" x2="100" y2="760" stroke="#c8860e" stroke-width="7" />
+    <line x1="-10" y1="620" x2="110" y2="760" stroke="#c8860e" stroke-width="4" />
+  </svg>
+
+  <div class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="117.6976 70.1237 24.4788 24.4804" width="30" height="30">
+    <defs>
+      <clipPath clipPathUnits="userSpaceOnUse" id="clipPath1592">
+        <path d="m 141.733,0 h 1105.51 V 708.661 H 141.733 Z" id="path1590"/>
+      </clipPath>
+    </defs>
+    <g id="svg2" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)">
+      <g id="g10" transform="matrix(1.333333, 0, 0, -1.333333, -404.614166, 625.308044)">
+        <g id="g1586" transform="matrix(1, 0, 0, 1, -573.081665, 206.884583)">
+          <g id="g1588" clip-path="url(#clipPath1592)">
+            <g id="g1594" transform="translate(973.5386,206.6978)">
+              <path d="M 0,0 C 0,1.525 -1.282,2.806 -2.806,2.806 -4.332,2.806 -5.613,1.525 -5.613,0 v -0.305 h -0.304 c -1.526,0 -2.806,-1.281 -2.806,-2.867 0,-1.525 1.28,-2.806 2.806,-2.806 H 0 Z"
+                style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" id="path1596"/>
+            </g>
+            <g id="g1598" transform="translate(973.5386,193.9495)">
+              <path d="m 0,0 c 0,-1.526 -1.282,-2.806 -2.806,-2.806 -1.526,0 -2.807,1.28 -2.807,2.806 v 0.305 h -0.304 c -1.526,0 -2.806,1.281 -2.806,2.806 0,1.525 1.28,2.805 2.806,2.805 H 0 Z"
+                style="fill-opacity:1;fill-rule:nonzero;stroke:none;fill:rgb(52,199,89);" id="path1600"/>
+            </g>
+            <g id="g1602" transform="translate(974.4537,206.6978)">
+              <path d="M 0,0 C 0,1.525 1.22,2.806 2.805,2.806 4.33,2.806 5.611,1.525 5.611,0 v -0.305 h 0.305 c 1.525,0 2.805,-1.281 2.805,-2.867 0,-1.525 -1.28,-2.806 -2.805,-2.806 H 0 Z"
+                style="fill-opacity:1;fill-rule:nonzero;stroke:none;fill:rgb(52,199,89);" id="path1604"/>
+            </g>
+            <g id="g1606" transform="translate(974.4537,193.9495)">
+              <path d="m 0,0 c 0,-1.526 1.22,-2.806 2.805,-2.806 1.525,0 2.806,1.28 2.806,2.806 v 0.305 h 0.305 c 1.525,0 2.805,1.281 2.805,2.806 0,1.525 -1.28,2.805 -2.805,2.805 H 0 Z"
+                style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" id="path1608"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+    <span class="logo-text">PET-SENA</span>
+  </div>
+
+  <!-- Screen 1: Name Entry -->
+  <div class="screen" id="screen1">
+    <div class="name-card">
+      <div class="name-label">Escolha seu nome:</div>
+      <div class="name-row">
+        <input class="name-input" id="nameInput" type="text" placeholder="" maxlength="30" />
+        <button class="go-btn" id="goBtn" aria-label="Confirmar nome">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12,8 16,12 12,16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Results -->
+  <div class="screen hidden" id="screen2">
+    <div class="good-luck">Boa sorte, <span id="displayName">SEU NOME</span></div>
+    <div class="numbers-label">SEUS NÚMEROS SÃO:</div>
+    <div class="numbers-card">
+      <div class="numbers-grid" id="numbersGrid"></div>
+    </div>
+    <div style="height:16px"></div>
+    <div class="action-row">
+      <button class="btn-dark" id="regenBtn">Gerar novamente</button>
+      <button class="btn-light" id="changeName">Trocar de Nome</button>
+    </div>
+  </div>
+
+  <div class="pet">
+    <img
+      src="./designs/logo-PET.png"
+      alt="PET Logo"
+      style="width:200px; object-fit:cover; object-position:top; display:block; opacity:0.65;"
+    />
+    PET ESTATÍSTICA UFC
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
