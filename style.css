@@ -15,14 +15,16 @@ body {
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .app {
   overflow-x: hidden;
   background: #0d3b52;
-  width: 100%;
+  width: 100vw;
   max-width: 420px;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   display: flex;
   flex-direction: column;
