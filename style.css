@@ -1,6 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/futura-std-4');
 @import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
 
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,13 +39,31 @@ body {
 /* Decorative diagonal lines */
 .deco {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
 }
+
+.deco-line {
+  position: absolute;
+  width: 200%;        /* long enough to always bleed off edges */
+  height: 7px;
+  background: #c8860e;
+  transform-origin: center center;
+  transform: rotate(45deg);
+}
+
+.deco-line.top1    { transform: rotate(20deg); }
+.deco-line.top2    { transform: rotate(50deg); }
+.deco-line.bottom1 { transform: rotate(10deg); }
+.deco-line.bottom2 { transform: rotate(35deg); }
+.deco-line.bottom3 { transform: rotate(25deg); }
+
+.deco-line.top1    { top: 0%;      right: -50%; }
+.deco-line.top2    { top: -20%;    right: -50%; }
+.deco-line.bottom1 { bottom: 0%;   left: -50%; }
+.deco-line.bottom2 { bottom: -11%; left: -50%; }
+.deco-line.bottom3 { bottom: -10%; left: -50%; }
 
 /* Logo */
 .logo {
