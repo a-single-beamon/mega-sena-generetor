@@ -97,10 +97,12 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
+  width: 100%;
 }
 
 .name-input {
   flex: 1;
+  min-width: 0;
   background: #fff;
   border: none;
   border-radius: 10px;
