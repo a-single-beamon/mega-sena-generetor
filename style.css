@@ -1,3 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/futura-std-4');
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -47,10 +50,13 @@ body {
 }
 
 .logo-text {
+  font-family: 'Futura Std', sans-serif;
   font-size: 28px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 /* Screens */
@@ -126,7 +132,7 @@ body {
 }
 
 /* ── Screen 2: Results ── */
-.good-luck {
+.secondary-text {
   font-size: 22px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
@@ -135,11 +141,15 @@ body {
   margin-bottom: 4px;
 }
 
-.good-luck span {
+.secondary-text span {
   font-weight: 700;
   color: #fff;
   display: block;
   font-size: 26px;
+}
+
+#finalMsg.secondary-text {
+  margin-bottom: 20px;
 }
 
 .numbers-label {
@@ -161,9 +171,31 @@ body {
 }
 
 .numbers-grid {
+  padding: 0px 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 25px;
+}
+
+.ball {
+  width: 70px;
+  height: 70px;
+  background-color: #ffffff; /* Crisp white background */
+  color: #0d3b52;            /* Dark blue text color for contrast */
+  font-family: 'Konkhmer Sleokchher', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  
+  /* Makes it a perfect circle */
+  border-radius: 50%; 
+  
+  /* Centers the number perfectly inside the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .num-ball {
@@ -190,20 +222,22 @@ body {
 /* Action buttons */
 .action-row {
   display: flex;
-  gap: 14px;
+  gap: 50px;
   margin-top: 20px;
-  width: 100%;
+  margin-bottom: 20px;
+  width: 80%;
   z-index: 1;
 }
 
 .btn-dark {
+  margin-bottom: 20px;
   flex: 1;
-  background: #122b38;
-  color: #d0e8f0;
+  background: #c8860e;
+  color: #D5E3EA;
   border: none;
   border-radius: 50px;
-  padding: 17px 10px;
-  font-size: 15px;
+  padding: 20px 30px;
+  font-size: 20px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.15s;
@@ -211,6 +245,10 @@ body {
 }
 
 .btn-dark:hover {
+  background: #0a1f28;
+}
+
+.btn-dark:active {
   background: #0a1f28;
 }
 
@@ -229,7 +267,13 @@ body {
 }
 
 .btn-light:hover {
-  background: #c0d8e2;
+  background: #0a1f28;
+  color: #d8e8ee;
+}
+
+.btn-light:active {
+  background-color: #0a1f28;
+  color: #d8e8ee;
 }
 
 /* Footer */

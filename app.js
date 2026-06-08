@@ -12,8 +12,8 @@ function renderNumbers(nums) {
   document.getElementById('numbersGrid').innerHTML = nums
     .map(n => `
       <div class="num-ball">
-        <div class="circle"></div>
-        <div class="num-val">${String(n).padStart(2, '0')}</div>
+        
+        <div class="ball">${String(n).padStart(2, '0')}</div>
       </div>
     `)
     .join('');
@@ -24,6 +24,7 @@ function showScreen2(name) {
   renderNumbers(generateNumbers());
   document.getElementById('screen1').classList.add('hidden');
   document.getElementById('screen2').classList.remove('hidden');
+  document.getElementById('finalMsg').classList.add('hidden');
 }
 
 function showScreen1() {
@@ -47,6 +48,15 @@ document.getElementById('nameInput').addEventListener('keydown', e => {
 
 document.getElementById('regenBtn').addEventListener('click', () => {
   renderNumbers(generateNumbers());
+  console.log("click");
 });
 
 document.getElementById('changeName').addEventListener('click', showScreen1);
+
+document.getElementById('sendBtn').addEventListener('click', () => {
+  document.getElementById('mssg').textContent = "Boa sorte,";
+  document.getElementById('finalMsg').classList.remove('hidden');
+  document.getElementById('displayName').textContent = document.getElementById('displayName').textContent + "!";
+  document.getElementById('buttons').classList.add('hidden');
+  document.getElementById('sendBtn').classList.add('hidden');
+});
