@@ -1,8 +1,7 @@
 /* ── Mega-Sena Number Generator ── */
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbyo0uTULNfSbX51b8ALYC0TwUKvOf6bg2KbGkqkrexoWY2Lfmz2kMbXqd79Yu3GFxG9/exec";
 
 async function sendToSheets(data) {
-  const SHEET_URL = "https://script.google.com/macros/s/AKfycbyo0uTULNfSbX51b8ALYC0TwUKvOf6bg2KbGkqkrexoWY2Lfmz2kMbXqd79Yu3GFxG9/exec";
-
   try {
     await fetch(SHEET_URL, {
       method: "POST",
@@ -15,6 +14,49 @@ async function sendToSheets(data) {
     console.error("Error sending data:", error);
   }
 }
+
+async function checkResetToken() {
+  try {
+    const response = await fetch(SHEET_URL);
+    const data = await response.json();
+    const remoteToken = String(data.resetToken);
+    const localToken = localStorage.getItem('resetToken');
+
+    if (localToken !== remoteToken) {
+      // Token changed — wipe everything and save new token
+      localStorage.removeItem('megaSenaSent');
+      localStorage.setItem('resetToken', remoteToken);
+      console.log("Reset triggered — localStorage cleared");
+      document.getElementById('loadingScreen').classList.add('hidden');
+      document.getElementById('screen1').classList.remove('hidden');
+    }
+  } catch (error) {
+    console.error("Could not fetch reset token:", error);
+  }
+}
+
+/* Load with page to check for giveaway token */
+async function init() {
+  document.getElementById('screen1').classList.add('hidden');
+  document.getElementById('screen2').classList.add('hidden');
+  document.getElementById('loadingScreen').classList.remove('hidden');
+  
+  await checkResetToken();  // check if user in this giveaway
+
+  // Check if already answered
+  document.getElementById('loadingScreen').classList.add('hidden');
+
+  const saved = localStorage.getItem('megaSenaSent');
+  if (saved) {
+    const { name, numbers } = JSON.parse(saved);
+    showScreen2(name, numbers, true);
+    showScreenFinal();
+  } else {
+    document.getElementById('screen1').classList.remove('hidden');
+  }
+}
+
+init();
 
 function generateNumbers() {
   const nums = new Set();
@@ -63,13 +105,6 @@ function showScreenFinal() {
   document.getElementById('sendBtn').classList.add('hidden');
 }
 
-// Check if already answered
-const saved = localStorage.getItem('megaSenaSent');
-if (saved) {
-  const { name, numbers } = JSON.parse(saved);
-  showScreen2(name, numbers, true);  // restore locked screen
-  showScreenFinal();
-}
 
 /* Event listeners */
 document.getElementById('goBtn').addEventListener('click', () => {
